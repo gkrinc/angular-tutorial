@@ -1,3 +1,15 @@
 {
-    "name": "Greg"
+    "name": "Greg Smith",
+    "projects": [
+        {
+            "title": "Intro to AngularJS Workshop",
+            "description": "Presenting AngularJS :)",
+            "date": "2014-11-24"
+        },
+        {
+            "title": "A Super Awesome Project",
+            "description": "Amazing Web App built using AngularJS",
+            "date": "2014-11-01"
+        }
+    ]
 }
