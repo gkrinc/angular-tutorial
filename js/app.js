@@ -1,8 +1,10 @@
+/* Angular App */
 var tutorialApp = angular.module('tutorialApp', [
 	'ngRoute',
 	'tutorialControllers'
 ]);
 
+/* Router */
 tutorialApp.config(['$routeProvider',
 	function($routeProvider) {$routeProvider.
 	when('/', {
@@ -26,13 +28,16 @@ tutorialApp.config(['$routeProvider',
 }]);
 
 
+/* Controllers */
 var tutorialControllers = angular.module('tutorialControllers', []);
 
+/* Tutorial Controller */
 tutorialControllers.controller('tutorialCtrl', ['$scope', '$http', '$location',
 	
 	/* Runs automatically when the Controller is Loaded */
 	function ($scope, $http, $location) {
-		$http.get('/data.json').success(function(data) {
+		/* cache busting timestamp */
+		$http.get('/profile.json?t='+Date.now()).success(function(data) {
 		$scope.profile = data;
 	});
 	
@@ -43,9 +48,11 @@ tutorialControllers.controller('tutorialCtrl', ['$scope', '$http', '$location',
 
 }]);
 
+/* Not Found Controller */
 tutorialControllers.controller('notFoundCtrl', ['$scope', '$http',
 	function ($scope, $http) {
-		$http.get('/data.json').success(function(data) {
-		$scope.profile = data;
+		/* cache busting timestamp */
+		$http.get('/404.json?t='+Date.now()).success(function(data) {
+		$scope.data = data;
 	});
 }]);
